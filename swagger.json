@@ -1,0 +1,95 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "User API",
+    "description": "User Management API"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/addsaff": {
+      "post": {
+        "summary": "Create a new staff",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "mobileno": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "employeecode": {
+                  "example": "any"
+                },
+                "access": {
+                  "example": {
+                    "All": {
+                      "example": "any"
+                    },
+                    "Dashboard": {
+                      "example": "any"
+                    },
+                    "Request Management": {
+                      "example": "any"
+                    },
+                    "Company Management": {
+                      "example": "any"
+                    },
+                    "Users Management": {
+                      "example": "any"
+                    },
+                    "Content Management": {
+                      "example": "any"
+                    },
+                    "Staff Management": {
+                      "example": "any"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/staffdetails/{id}": {
+        "get": {
+          "summary": "Get staff details by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "staff not found"
+            }
+          }
+        }
+    }
+  }
+}
