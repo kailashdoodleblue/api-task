@@ -4,8 +4,9 @@ import { StaffController } from '../controller/staffController';
 
 const route=express.Router()
 
-route.get('/',StaffController.getallstaff)
-route.post('/addstaff',StaffController.createStaff)
-route.get('/staffdetails/:id',StaffController.getstaffbyid)
+route.get('/getAllStaffs',StaffController.getallstaff)
+route.post('/addStaff',StaffController.createStaff)
+route.get('/staffDetailsById/:id',StaffController.getstaffbyid)
+route.delete('/deleteStaff/:id',StaffController.deleteStaff)
 
 export default route

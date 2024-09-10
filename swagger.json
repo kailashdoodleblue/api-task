@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "User API",
-    "description": "User Management API"
+    "title": "Staff API",
+    "description": "Staff Management API"
   },
   "host": "localhost:3000",
   "basePath": "/api",
@@ -11,7 +11,34 @@
     "http"
   ],
   "paths": {
-    "/addsaff": {
+    "/getAllStaffs": {
+      "get": {
+        "summary": "Get all staff details",
+        "parameters": [
+          {
+            "name": "size",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "All datas"
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/addStaff": {
       "post": {
         "summary": "Create a new staff",
         "parameters": [
@@ -36,27 +63,13 @@
                 },
                 "access": {
                   "example": {
-                    "All": {
-                      "example": "any"
-                    },
-                    "Dashboard": {
-                      "example": "any"
-                    },
-                    "Request Management": {
-                      "example": "any"
-                    },
-                    "Company Management": {
-                      "example": "any"
-                    },
-                    "Users Management": {
-                      "example": "any"
-                    },
-                    "Content Management": {
-                      "example": "any"
-                    },
-                    "Staff Management": {
-                      "example": "any"
-                    }
+                    "All": "any",
+                    "Dashboard": "any",
+                    "Request Management": "any",
+                    "Company Management": "any",
+                    "Users Management": "any",
+                    "Content Management": "any",
+                    "Staff Management": "any"
                   }
                 }
               }
@@ -65,31 +78,34 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Staff Created"
+          },
+          "404": {
+            "description": "staff not created"
           }
         }
       }
     },
-    "/staffdetails/{id}": {
-        "get": {
-          "summary": "Get staff details by ID",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "integer"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            },
-            "404": {
-              "description": "staff not found"
-            }
+    "/staffDetailsById/{id}": {
+      "get": {
+        "summary": "Get staff details by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "staff not found"
           }
         }
+      }
     }
   }
 }
